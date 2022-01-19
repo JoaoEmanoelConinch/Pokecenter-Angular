@@ -1,1 +1,14 @@
-<p>form works!</p>
+<form [formGroup]="formEntity">
+  <div *ngFor="let value of keys">
+    <label [for]="value">{{value}}: </label>
+    <br>
+    <input type="text" [formControlName]="value" [id]="value">
+    <br>
+  </div>
+
+  <div>
+    <button (click)="clickSubmit()">Submit</button>
+    <button (click)="goBack()">Cancel</button>
+  </div>
+
+</form>
