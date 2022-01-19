@@ -14,7 +14,7 @@ import {TableModule} from 'primeng/table';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    TableModule  ],
+    TableModule],
   exports: [FormComponent, ListComponent, ReadComponent]
 })
 export class SharedModule { }
