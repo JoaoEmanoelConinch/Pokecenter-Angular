@@ -38,6 +38,9 @@ export class PokemonService {
   }
 
   getData(name: string) {
-    return this.http.get(`${this.pokeApiUrl}/${name}`)
+    const pokemon = this.http.get(`${this.pokeApiUrl}/${name}`)
+    if(pokemon){
+      return pokemon;
+    }
   }
 }
