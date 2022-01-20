@@ -7,13 +7,17 @@ import { ListComponent } from './list/list.component';
 import { ReadComponent } from './read/read.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
+import { ButtonModule } from 'primeng/button';
+
 
 @NgModule({
   declarations: [FormComponent, ListComponent, ReadComponent],
   imports: [
     CommonModule,
     PokemonRoutingModule,
-    SharedModule
+    SharedModule,
+    ButtonModule,
+
   ]
 })
 export class PokemonModule { }

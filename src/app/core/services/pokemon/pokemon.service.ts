@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Pokemon } from '../../model/pokemon';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PokemonData } from '../../model/pokemonData';
+import { PokemonApi } from '../../model/pokemonApi';
 
 
 @Injectable({
@@ -47,9 +47,12 @@ export class PokemonService {
     }
   }
 
-  getData(name: string): Observable<PokemonData> {
+  getData(name: string): Observable<PokemonApi> {
     const pokemon:Observable<any> = this.http.get(`${this.pokeApiUrl}/${name}`)
     if(pokemon){
+      pokemon.subscribe((pokemonapi)=>{
+        console.log(pokemonapi.stats)
+      })
       return pokemon;
     }
   }
