@@ -1,14 +1,15 @@
-<form [formGroup]="formEntity">
-  <div *ngFor="let value of keys">
-    <label [for]="value">{{value}}: </label>
-    <br>
-    <input type="text" [formControlName]="value" [id]="value">
-    <br>
-  </div>
+<div class="From">
+  <form [formGroup]="formEntity">
+    <div *ngFor="let value of keys">
+      <label [for]="value">{{ value }}: </label>
+      <br />
+      <input pInputText type="text" [formControlName]="value" [id]="value" />
+      <br />
+    </div>
 
-  <div>
-    <button (click)="clickSubmit()">Submit</button>
-    <button (click)="goBack()">Cancel</button>
-  </div>
-
-</form>
+    <div>
+      <button pButton (click)="clickSubmit()" label="Submit" class="ui-button-success"></button>
+      <button pButton (click)="goBack()" label="Cancel" class="ui-button-danger"></button>
+    </div>
+  </form>
+</div>

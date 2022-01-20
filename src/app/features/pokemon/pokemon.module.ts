@@ -9,7 +9,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ButtonModule } from 'primeng/button';
 import {TableModule} from 'primeng/table';
-
+import {ListboxModule} from 'primeng/listbox';
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import {TableModule} from 'primeng/table';
     PokemonRoutingModule,
     SharedModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    ListboxModule
   ]
 })
 export class PokemonModule { }

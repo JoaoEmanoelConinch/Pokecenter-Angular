@@ -1,47 +1,42 @@
-<div class="card">
-  <div class="cima">
-    <div class="img">
-      <img src="{{ pokemon.sprites.front_default }}" width="300" height="200" />
-    </div>
-    <div class="stats">
-      <div *ngFor="let stat of pokemon.stats" class="stat">
-        <p>
-          {{ stat.stat.name }} <br />
-          {{ stat.base_stat }}
-        </p>
+<div class="pokemon-api">
+<div class="grid">
+  <div class="col">
+    <div class="grid">
+      <div class="col-4">
+        <img
+          [src]="pokemon.sprites.front_default"
+          width="300"
+          height="200"
+        />
       </div>
-    </div>
-    <br />
-    <div class="types">
-      <div *ngFor="let type of pokemon.types" class="type">
-        <p>{{ type.type.name }}</p>
+      <div class="col-4">
+        <div class="grid">
+          <h1>Stats:</h1>
+          <div *ngFor="let stat of pokemon.stats" class="col-12">
+            <p>
+              {{ stat.stat.name }} <br />
+              {{ stat.base_stat }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="col-4">
+        <h1>Types:</h1>
+        <!-- <p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [style]="{'width':'15rem'}"></p-listbox> -->
+        <div *ngFor="let type of pokemon.types" class="col-3">
+          <p>{{ type.type.name }}</p>
+        </div>
       </div>
     </div>
   </div>
-  <div class="moves">
-    <div *ngFor="let move of pokemon.moves" class="move">
+  <div class="grid">
+    <h1>Moves:</h1>
+    <div *ngFor="let move of pokemon.moves" class="col-3">
       <p>{{ move.move.name }}</p>
     </div>
   </div>
 
-  <button (click)="goBack()"><<<</button>
+  <p-button (click)="goBack()" label="Go back"></p-button>
 </div>
-
-<!-- <div>
-  <img src="{{pokemon.sprites.front_default}}" width="300" height="200">
-  <div>
-    <p-table [scrollable]="true" [value]="pokemon.stats">
-      <ng-template pTemplate="header">
-        <tr>
-          <th *ngFor="let header of pokemon.stats">
-            {{ header.stat.name }}
-          </th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-pokemon.stats>
-
-      </ng-template>
-    </p-table>
-
-  </div>
-</div> -->
+</div>

@@ -1,5 +1,5 @@
 <div>
-  <input type="text" [(ngModel)]="inputValue" (keyup.enter)="search()">
+  <input pInputText type="text" [(ngModel)]="inputValue" (keyup.enter)="search()">
   <button pButton label="Add" (click)="goToAdd()" class="p-button-raised"></button>
 </div>
 
@@ -17,9 +17,9 @@
           {{ pokemon[key] }}
         </td>
         <td>
-          <button (click)="editEntity(pokemon.id)">Edit</button>
-          <button (click)="onDeleteEntity(pokemon.id)">Delete</button>
-          <button (click)="seePokemonData(pokemon.specie)">See More</button>
+          <button pButton (click)="editEntity(pokemon.id)" label="Edit" class="ui-button-warning"></button>
+          <button pButton (click)="onDeleteEntity(pokemon.id)" label="Delete" class="ui-button-danger"></button>
+          <button pButton (click)="seePokemonData(pokemon.specie)" label="See More" class="ui-button-info"></button>
         </td>
       </tr>
     </ng-template>
