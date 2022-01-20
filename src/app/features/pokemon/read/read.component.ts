@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PokemonApi } from 'src/app/core/model/pokemonApi';
 
 @Component({
   selector: 'app-read',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReadComponent implements OnInit {
 
-  constructor() { }
+  pokemon: PokemonApi
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.data.subscribe((value)=>{
+      this.pokemon = value.entity
+    })
+  }
+
+  goBack(){
+    this.router.navigate(['..'])
   }
 
 }

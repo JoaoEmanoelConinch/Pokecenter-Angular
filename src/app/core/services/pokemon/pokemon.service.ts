@@ -50,9 +50,6 @@ export class PokemonService {
   getData(name: string): Observable<PokemonApi> {
     const pokemon:Observable<any> = this.http.get(`${this.pokeApiUrl}/${name}`)
     if(pokemon){
-      pokemon.subscribe((pokemonapi)=>{
-        console.log(pokemonapi.stats)
-      })
       return pokemon;
     }
   }

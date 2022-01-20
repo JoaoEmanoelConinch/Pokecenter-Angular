@@ -30,7 +30,6 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe((value) =>{
-      console.log(value)
       this.entities = value.entities;
     })
 
@@ -45,6 +44,10 @@ export class ListComponent implements OnInit {
 
   editEntity(id: number): void{
     this.router.navigate([id], {relativeTo: this.activatedRoute})
+  }
+
+  seePokemonData(name: string): void{
+    this.router.navigate(['name',name], {relativeTo: this.activatedRoute})
   }
 
   search(){

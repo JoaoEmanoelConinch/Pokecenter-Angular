@@ -1,11 +1,11 @@
-import { Move } from "./move";
 import { ObjStat } from "./objStat";
 import { ObjType } from "./objType";
 import { Sprites } from "./sprites";
+import { ObjMove } from "./objMove";
 
 export interface PokemonApi{
-  moves: Move[],
+  moves: ObjMove[],
   sprites: Sprites,
-  type: ObjType[],
-  Stats: ObjStat[]
+  types: ObjType[],
+  stats: ObjStat[]
 }

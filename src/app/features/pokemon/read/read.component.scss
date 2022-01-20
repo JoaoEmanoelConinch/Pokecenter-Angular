@@ -1,0 +1,50 @@
+.card{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  // background-color: aqua;
+}
+
+.cima, .moves{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid black;
+  // background-color:black;
+}
+
+.moves{
+  // background-color:blue;
+  flex-wrap: wrap;
+}
+
+.move{
+  margin: 10px;
+}
+
+.stats{
+  border-left: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  width: 20%;
+  text-align: center;
+}
+
+.types{
+  width: 20%;
+  text-align: center;
+  border-left: 1px solid black;
+}
+
+.img{
+  width: 25%;
+  height: 75%;
+  margin-top: 5%;
+  // background-color: pink;
+}
+

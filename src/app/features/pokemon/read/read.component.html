@@ -1,1 +1,47 @@
-<p>FOI</p>
+<div class="card">
+  <div class="cima">
+    <div class="img">
+      <img src="{{ pokemon.sprites.front_default }}" width="300" height="200" />
+    </div>
+    <div class="stats">
+      <div *ngFor="let stat of pokemon.stats" class="stat">
+        <p>
+          {{ stat.stat.name }} <br />
+          {{ stat.base_stat }}
+        </p>
+      </div>
+    </div>
+    <br />
+    <div class="types">
+      <div *ngFor="let type of pokemon.types" class="type">
+        <p>{{ type.type.name }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="moves">
+    <div *ngFor="let move of pokemon.moves" class="move">
+      <p>{{ move.move.name }}</p>
+    </div>
+  </div>
+
+  <button (click)="goBack()"><<<</button>
+</div>
+
+<!-- <div>
+  <img src="{{pokemon.sprites.front_default}}" width="300" height="200">
+  <div>
+    <p-table [scrollable]="true" [value]="pokemon.stats">
+      <ng-template pTemplate="header">
+        <tr>
+          <th *ngFor="let header of pokemon.stats">
+            {{ header.stat.name }}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-pokemon.stats>
+
+      </ng-template>
+    </p-table>
+
+  </div>
+</div> -->

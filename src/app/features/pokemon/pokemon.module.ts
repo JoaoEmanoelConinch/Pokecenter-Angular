@@ -8,6 +8,8 @@ import { ReadComponent } from './read/read.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ButtonModule } from 'primeng/button';
+import {TableModule} from 'primeng/table';
+
 
 
 @NgModule({
@@ -17,7 +19,7 @@ import { ButtonModule } from 'primeng/button';
     PokemonRoutingModule,
     SharedModule,
     ButtonModule,
-
+    TableModule
   ]
 })
 export class PokemonModule { }
