@@ -1,3 +1,4 @@
+import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/core/model/pokemon';
 import { PokemonService } from 'src/app/core/services/pokemon/pokemon.service';
@@ -10,17 +11,20 @@ import { PokemonService } from 'src/app/core/services/pokemon/pokemon.service';
 export class ListComponent implements OnInit {
 
   pokemons: Pokemon[] = [];
-  headers: string[] = ['Likname','Name','BadStatus','Actions']
+  headers: string[] = ['Likname','Specie','BadStatus','Actions']
 
   constructor(private pokemonService: PokemonService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   deletePokemon(event): void{
     this.pokemonService.delete(event.id).subscribe(()=>{
       this.pokemonService.all().subscribe(event.callback)
     })
+  }
+
+  searchPokemon(event){
+    this.pokemonService.all({query: event.query }).subscribe(event.callback)
   }
 
 }

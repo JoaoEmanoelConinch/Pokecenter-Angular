@@ -1,4 +1,4 @@
-import { Status } from "./stutus";
+import { Status } from "./status";
 
 export class PokemonData{
   moves: string[]

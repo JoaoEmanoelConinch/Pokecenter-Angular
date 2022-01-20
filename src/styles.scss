@@ -1,8 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
-table, td, tr{
-  margin: 2px;
+*{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+form{
+  padding: 12px;
+  margin: 0px;
+}
+table{
+  padding: 12px;
+  width: 100%;
   text-align: center;
 }
-button{
-  margin: 1px;
+
+table, th{
+  border: 1px solid;
 }
+
+  form{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+  }
+  input{
+    background-color: hsl(0, 0%, 100%);
+    color: rgb(0, 0, 0);
+  }
+  // button{
+  //   background-color: rgb(31, 48, 199);
+  //   color: rgb(255, 255, 255);
+  //   border-color: rgb(253, 253, 253);
+  //   margin: 2px;
+  // }
+  table{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+  }
+  th{
+    background-color: #FFD017;
+  }
+  div{
+    background-color: aliceblue;
+  }
+

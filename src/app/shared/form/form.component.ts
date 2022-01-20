@@ -41,6 +41,7 @@ export class FormComponent implements OnInit {
   clickSubmit(){
     if(this.formEntity.valid){
       this.submit.emit(this.formEntity.value)
+      console.log(this.formEntity.value)
     }
   }
 

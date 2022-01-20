@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Pokemon } from '../../model/pokemon';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { PokemonData } from '../../model/pokemonData';
 
 
 @Injectable({
@@ -16,9 +17,18 @@ export class PokemonService {
 
   constructor(private http: HttpClient) { }
 
-  all(): Observable<Pokemon[]> {
-    //param
-    return this.http.get<Pokemon[]>(this.dummyBackendUrl).pipe(map(values => values.filter(value => value.likname)))
+  all(queryParams?: {query?: string;}): Observable<Pokemon[]> {
+    let params = {}
+
+    console.log(queryParams)
+
+    if(queryParams){
+      const {query} = queryParams
+
+      params = query ? {q: query}:{};
+    }
+
+    return this.http.get<Pokemon[]>(this.dummyBackendUrl, {params}).pipe(map(values => values.filter(value => value.likname)))
   }
 
   getOne(id: number): Observable<Pokemon> {
@@ -37,10 +47,12 @@ export class PokemonService {
     }
   }
 
-  getData(name: string) {
-    const pokemon = this.http.get(`${this.pokeApiUrl}/${name}`)
+  getData(name: string): Observable<PokemonData> {
+    const pokemon:Observable<any> = this.http.get(`${this.pokeApiUrl}/${name}`)
     if(pokemon){
       return pokemon;
     }
   }
+
+  // parseToData(Pokemon): Observable<Pokemon>
 }

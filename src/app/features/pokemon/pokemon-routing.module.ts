@@ -3,7 +3,7 @@ import { Routes, RouterModule, Resolve, ActivatedRouteSnapshot, RouterStateSnaps
 import { Observable } from 'rxjs';
 import { Pokemon } from 'src/app/core/model/pokemon';
 import { PokemonData } from 'src/app/core/model/pokemonData';
-import { Status } from 'src/app/core/model/stutus';
+import { Status } from 'src/app/core/model/status';
 import { PokemonService } from 'src/app/core/services/pokemon/pokemon.service';
 import { FormComponent } from './form/form.component';
 import { ListComponent } from './list/list.component';
@@ -28,46 +28,46 @@ export class PokemonDataResolver implements Resolve<Pokemon>{
 }
 
 //verificar
-@Injectable()
-export class PokemonDataDataResolver implements Resolve<Pokemon>{
-  constructor(private pokemonService: PokemonService){}
+// @Injectable()
+// export class PokemonDataDataResolver implements Resolve<Pokemon>{
+//   constructor(private pokemonService: PokemonService){}
 
-  resolve(route: ActivatedRouteSnapshot): Observable<PokemonData>{
-    let pokemon = this.pokemonService.getData(route.params.name)
+//   resolve(route: ActivatedRouteSnapshot): Observable<PokemonData>{
+//     let pokemon = this.pokemonService.getData(route.params.name)
 
-    let pokemonData = new PokemonData()
+//     let pokemonData = new PokemonData()
 
-    pokemonData.sprites = pokemon.subscribe((data) => {
-      data.sprites.front_default
-    })
+//     pokemonData.sprites = pokemon.subscribe((data) => {
+//       data.sprites.front_default
+//     })
 
-    pokemon.subscribe((data) => {
-      for (let i = 0; i < data.types.launch; i++){
-        pokemonData.types.push(data.types[i].type.name)
-      }
-    })
+//     pokemon.subscribe((data) => {
+//       for (let i = 0; i < data.types.launch; i++){
+//         pokemonData.types.push(data.types[i].type.name)
+//       }
+//     })
 
-    pokemon.subscribe((data) => {
-      for (let i = 0; i < data.moves.launch; i++){
-        pokemonData.moves.push(data.moves[i].move.name)
-      }
-    })
+//     pokemon.subscribe((data) => {
+//       for (let i = 0; i < data.moves.launch; i++){
+//         pokemonData.moves.push(data.moves[i].move.name)
+//       }
+//     })
 
-    pokemon.subscribe((data) => {
-      for (let i = 0; i < data.stats.launch; i++){
-        let status = new Status()
+//     pokemon.subscribe((data) => {
+//       for (let i = 0; i < data.stats.launch; i++){
+//         let status = new Status()
 
-        status.base_stat = data.stats[i].base_stat
-        status.name = data.stats[i].stat.name
+//         status.base_stat = data.stats[i].base_stat
+//         status.name = data.stats[i].stat.name
 
-        pokemonData.status.push(status)
-      }
-    })
+//         pokemonData.status.push(status)
+//       }
+//     })
 
-    return pokemonData;
+//     return pokemonData;
 
-  }
-}
+//   }
+//}
 
 const routes: Routes = [
   {
@@ -85,7 +85,7 @@ const routes: Routes = [
     path: ':id',
     component: FormComponent,
     resolve: {
-      entities: PokemonsDataResolver
+      entity: PokemonDataResolver
     }
   },
   {

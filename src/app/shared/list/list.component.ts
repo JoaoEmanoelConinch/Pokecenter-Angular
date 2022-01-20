@@ -17,10 +17,11 @@ export class ListComponent implements OnInit {
   @Output()
   deleteEntity = new EventEmitter();
 
-  // @Output()
-  // searchEntity = new EventEmitter();
+  @Output()
+  searchEntity = new EventEmitter();
 
   entities: any[];
+  inputValue: string
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -46,16 +47,19 @@ export class ListComponent implements OnInit {
     this.router.navigate([id], {relativeTo: this.activatedRoute})
   }
 
-  // search(){
-  //   const obj = {
-  //     query: this.
-  //   }
-  // }
+  search(){
+    const obj = {
+      query: this.inputValue,
+      callback: (entities) => { this.setEntities(entities) }
+    }
+    console.log(this.inputValue)
+    this.searchEntity.emit(obj);
+  }
 
   onDeleteEntity(id: number):void{
     const obj = {
       id,
-      callback: this.setEntities
+      callback:  (entities) => { this.setEntities(entities) }
     };
     this.deleteEntity.emit(obj)
   }

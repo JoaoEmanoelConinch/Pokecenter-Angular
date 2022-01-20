@@ -5,6 +5,8 @@ import { ListComponent } from './list/list.component';
 import { ReadComponent } from './read/read.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+
 
 
 
@@ -14,7 +16,8 @@ import {TableModule} from 'primeng/table';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    TableModule],
+    TableModule,
+    ButtonModule],
   exports: [FormComponent, ListComponent, ReadComponent]
 })
 export class SharedModule { }
