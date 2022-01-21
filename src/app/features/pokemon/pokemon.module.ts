@@ -9,8 +9,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ButtonModule } from 'primeng/button';
 import {TableModule} from 'primeng/table';
-import {ListboxModule} from 'primeng/listbox';
-
+import {OrderListModule} from 'primeng/orderlist';
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   declarations: [FormComponent, ListComponent, ReadComponent],
@@ -20,7 +20,7 @@ import {ListboxModule} from 'primeng/listbox';
     SharedModule,
     ButtonModule,
     TableModule,
-    ListboxModule
-  ]
+    OrderListModule,
+    CardModule]
 })
 export class PokemonModule { }

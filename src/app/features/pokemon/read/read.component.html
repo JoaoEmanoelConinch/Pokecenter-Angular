@@ -1,42 +1,74 @@
 <div class="pokemon-api">
-<div class="grid">
-  <div class="col">
-    <div class="grid">
-      <div class="col-4">
-        <img
-          [src]="pokemon.sprites.front_default"
-          width="300"
-          height="200"
-        />
-      </div>
-      <div class="col-4">
-        <div class="grid">
-          <h1>Stats:</h1>
-          <div *ngFor="let stat of pokemon.stats" class="col-12">
-            <p>
-              {{ stat.stat.name }} <br />
-              {{ stat.base_stat }}
-            </p>
+  <div class="grid">
+    <div class="col">
+      <div class="grid">
+        <div class="col">
+          <div class="center">
+            <p-card
+              [header]="pokemon.species.name"
+              subheader="Types"
+              [style]="{ width: '360px' }"
+              styleClass="ui-card-shadow"
+            >
+              <p-header>
+                <img
+                  [src]="pokemon.sprites.front_default"
+                  width="300"
+                  height="200"
+                />
+              </p-header>
+            </p-card>
           </div>
         </div>
       </div>
-      <br />
-      <div class="col-4">
-        <h1>Types:</h1>
-        <!-- <p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [style]="{'width':'15rem'}"></p-listbox> -->
-        <div *ngFor="let type of pokemon.types" class="col-3">
-          <p>{{ type.type.name }}</p>
+      <div class="grid">
+        <div class="col-4">
+          <p-orderList
+            [value]="stats"
+            [listStyle]="{ height: '250px' }"
+            header="Stats"
+          >
+            <ng-template let-stat pTemplate="item">
+              <div class="ui-helper-clearfix">
+                <div>{{ stat.stat.name }} {{ stat.base_stat }}</div>
+              </div>
+            </ng-template>
+          </p-orderList>
+        </div>
+        <br />
+        <div class="col-4">
+          <p-orderList
+            [value]="types"
+            [listStyle]="{ height: '250px' }"
+            header="Types"
+          >
+            <ng-template let-type pTemplate="item">
+              <div class="ui-helper-clearfix">
+                <div>
+                  {{ type.type.name }}
+                </div>
+              </div>
+            </ng-template>
+          </p-orderList>
+        </div>
+        <div class="col-4">
+          <p-orderList
+            [value]="moves"
+            [listStyle]="{ height: '250px' }"
+            header="Moves"
+          >
+            <ng-template let-move pTemplate="item">
+              <div class="ui-helper-clearfix">
+                <div>
+                  {{ move.move.name }}
+                </div>
+              </div>
+            </ng-template>
+          </p-orderList>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="grid">
-    <h1>Moves:</h1>
-    <div *ngFor="let move of pokemon.moves" class="col-3">
-      <p>{{ move.move.name }}</p>
-    </div>
-  </div>
 
-  <p-button (click)="goBack()" label="Go back"></p-button>
-</div>
+      <p-button (click)="goBack()" label="Go back"></p-button>
+    </div>
+  </div>
 </div>
