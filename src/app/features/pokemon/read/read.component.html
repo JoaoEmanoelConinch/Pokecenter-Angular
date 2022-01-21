@@ -3,26 +3,29 @@
     <div class="col">
       <div class="grid">
         <div class="col">
-          <div class="center">
-            <p-card
-              [header]="pokemon.species.name"
-              subheader="Types"
-              [style]="{ width: '360px' }"
-              styleClass="ui-card-shadow"
-            >
-              <p-header>
-                <img
-                  [src]="pokemon.sprites.front_default"
-                  width="300"
-                  height="200"
-                />
-              </p-header>
-            </p-card>
-          </div>
+          <p-card
+            [header]="pokemon.species.name"
+            subheader="Types"
+            [style]="{ width: '360px' }"
+            styleClass="ui-card-shadow"
+          >
+            <p-header>
+              <img
+                [src]="pokemon.sprites.front_default"
+                width="300"
+                height="200"
+              />
+            </p-header>
+            <div class="grid">
+              <div class="col-6" *ngFor="let type of types">
+                {{ type.type.name }}
+              </div>
+            </div>
+          </p-card>
         </div>
       </div>
       <div class="grid">
-        <div class="col-4">
+        <div class="col">
           <p-orderList
             [value]="stats"
             [listStyle]="{ height: '250px' }"
@@ -36,22 +39,7 @@
           </p-orderList>
         </div>
         <br />
-        <div class="col-4">
-          <p-orderList
-            [value]="types"
-            [listStyle]="{ height: '250px' }"
-            header="Types"
-          >
-            <ng-template let-type pTemplate="item">
-              <div class="ui-helper-clearfix">
-                <div>
-                  {{ type.type.name }}
-                </div>
-              </div>
-            </ng-template>
-          </p-orderList>
-        </div>
-        <div class="col-4">
+        <div class="col">
           <p-orderList
             [value]="moves"
             [listStyle]="{ height: '250px' }"
