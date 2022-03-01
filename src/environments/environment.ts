@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   dummyBackendUrl: 'https://go-dev-frontend.herokuapp.com/api/animals',
-  pokeApiUrl: 'https://pokeapi.co/api/v2/pokemon'
+  pokeApiUrl: 'https://pokeapi.co/api/v2/'
 
 };
 

@@ -34,6 +34,10 @@ export class ReadComponent implements OnInit {
 
   }
 
+  goToThisMove(move:string){
+    this.router.navigate(['..','move', move])
+  }
+
   goBack(){
     this.router.navigate(['..'])
   }

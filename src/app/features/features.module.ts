@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { FeaturesRoutingModule } from './features-routing.module';
 import { PokemonModule } from './pokemon/pokemon.module';
+import { MoveModule } from './move/move.module';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     FeaturesRoutingModule,
-    PokemonModule
+    PokemonModule,
+    MoveModule
   ]
 })
 export class FeaturesModule { }

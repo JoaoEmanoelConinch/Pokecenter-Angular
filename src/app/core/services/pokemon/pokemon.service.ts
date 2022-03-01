@@ -13,7 +13,7 @@ import { PokemonApi } from '../../model/pokemonApi';
 export class PokemonService {
 
   private dummyBackendUrl = `${environment.dummyBackendUrl}`
-  private pokeApiUrl = `${environment.pokeApiUrl}`
+  private pokeApiUrl = `${environment.pokeApiUrl}pokemon`
 
   constructor(private http: HttpClient) { }
 

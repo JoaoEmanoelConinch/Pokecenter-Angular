@@ -47,9 +47,7 @@
           >
             <ng-template let-move pTemplate="item">
               <div class="ui-helper-clearfix">
-                <div>
-                  {{ move.move.name }}
-                </div>
+                  <p-button (click)="goToThisMove(move.move.name)" [label]="move.move.name"></p-button>
               </div>
             </ng-template>
           </p-orderList>
